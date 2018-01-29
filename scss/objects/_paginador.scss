@@ -1,0 +1,61 @@
+/*------------------------------------*\
+$SPONSOR
+\*------------------------------------*/
+.paginador {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-flow: row wrap;
+    padding: 10px 0;
+    width: 100%;
+    li {
+        margin-left: -1px;
+    }
+    li, a {
+        width: 36px;
+        height: 36px;
+        display: block;
+    }
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+        @include font-size(12px, 18px);
+        @extend .medium;
+        color: $light;
+        border: 1px solid $light;
+        transition: all $time;
+        &.current {
+            background: $light;
+            color: $secundario;
+        }
+        .no-touch & {
+            &:hover {
+                background: $light;
+            color: $secundario;
+                svg {
+                    fill: $secundario;
+                }
+            }
+            &.disable:hover {
+                background: transparent;
+                svg {
+                    fill: $light;
+                }
+            }
+        }
+        &.disable {
+            cursor: default;
+            svg {
+                fill: $light;
+            }
+        }
+    }
+    svg {
+        width: 8px;
+        height: 12px;
+        fill: $light;
+        transition: all $time;
+    }
+}

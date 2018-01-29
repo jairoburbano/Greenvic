@@ -1,0 +1,105 @@
+/*------------------------------------*\
+$FOOTER
+\*------------------------------------*/
+.footer {
+    padding: 20px 0 60px 0;
+    position: relative;
+    z-index: $level2;
+    color: $light;
+    @extend .medium;
+    @include font-size(12px, 14px);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    background: rgba($secundario, .4);
+    .page-noticias &, .page-busqueda & {
+        background: rgba($secundario, .8);
+    }
+    .page-error & {
+        display: none;
+    }
+    @include respond-to(tablet) {
+        padding: 60px 0;
+        text-align: left;
+    }
+    .footer__text {
+        p, a {
+            margin-bottom: 6px;
+            color: white;
+            display: block;
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+.footer__block {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba($light, .5);
+    @include respond-to(tablet) {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-flow: row wrap;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+}
+.share__column {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: row wrap;
+    margin-top: 20px;
+    @include respond-to(tablet) {
+        justify-content: flex-end;
+        margin-top: 0;
+    }
+}
+.share__item {
+    border: 1px solid $light;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    margin: 0 3px;
+    .no-touch & {
+        transition: all $time;
+        opacity: .5;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    svg {
+        max-height: 16px;
+        max-width: 16px;
+        fill: $light;
+    }
+}
+.footer__bottom {
+    @include respond-to(tablet) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-flow: row wrap;
+    }
+}
+.credits {
+    margin-top: 6px;
+    @include respond-to(tablet) {
+        margin-top: 0;
+    }
+    .no-touch & {
+        transition: all $time;
+        opacity: .5;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    svg {
+        fill: $light;
+    }
+}

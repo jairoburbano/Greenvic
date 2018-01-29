@@ -1,0 +1,91 @@
+/*------------------------------------*\
+$BTN
+\*------------------------------------*/
+.btn {
+    cursor: pointer;
+    padding: 0;
+    .no-touch & {
+        transition: all $time;
+        &:hover {
+            color: $secundario !important;
+        }
+    }
+    .content & {
+        &::after {
+            display: none;
+        }
+    }
+}
+.btn--border {
+    color: white;
+    border: 2px solid white;
+    text-transform: uppercase;
+    @extend .medium;
+    @include font-size(12px, 14px);
+    letter-spacing: 2px;
+    width: 190px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .no-touch & {
+        &:hover {
+            background: white;
+            color: $secundario;
+        }
+    }
+}
+.btn--center {
+    margin: auto;
+}
+.btn--info, .btn--ficha {
+    display: none;
+    @extend .medium;
+    @include respond-to(tablet) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        background: rgba($main, .8);
+        color: white;
+        @include font-size(12px, 14px);
+        cursor: pointer;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        z-index: $level6;
+        width: 150px;
+        height: 80px;
+        text-align: center;
+    }
+    .info--active & {
+        .icon--hide {
+            opacity: 0;
+        }
+    }
+    svg {
+        margin-bottom: 10px;
+        fill: white;
+    }
+    .icon--hide {
+        transition: all $time;
+    }
+}
+.btn--info {
+    @include respond-to(tablet) {
+        top: calc(50vh - 40px);
+    }
+} 
+.btn--ficha {
+    padding: 0 20px;
+    transform: translate(0, 0);
+    top: auto;
+    bottom: 90px;
+}
+.btn--form {
+    margin: 20px 0 !important;
+    font-size: 12px !important;
+}

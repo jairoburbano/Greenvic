@@ -1,0 +1,193 @@
+/*------------------------------------*\
+$SHOWCASE
+\*------------------------------------*/
+.showcase__block {
+}
+.showcase {
+    background: $secundario;
+    color: $light;
+    padding: 20px 20px 50px;
+    position: relative;
+    &:nth-of-type(2n) {
+        background: $light;
+        color: $secundario;
+        .showcase__background::after {
+            background: $light;
+        }
+    }
+    @include respond-to(tablet) {
+        padding: 40px 20px;
+    }
+    @include respond-to(desktop) {
+        padding: 80px 20px;
+    }
+    .wrap {
+        @include respond-to(desktop) {
+            display: flex;
+            justify-content: space-between;
+            flex-flow: row wrap;
+            align-items: center;
+        }
+    }
+}
+.showcase__background {
+    display: none;
+    overflow: hidden;
+    @include respond-to(tablet) {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: $level1;
+        display: flex;
+        justify-content: center;
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $secundario;
+            opacity: .7;
+            z-index: $level2;
+        }
+        .container--background {
+            width: calc(100% + 40px);
+            height: calc(100% + 40px);
+            margin: -20px;
+            display: flex;
+            justify-content: center;
+        }
+        img {
+            width: 100%;
+            object-fit: cover;
+            filter: blur(6px);
+        }
+    }
+}
+.showcase__content {
+    @include respond-to(tablet) {
+        width: 470px;
+        margin: auto;
+        position: relative;
+        z-index: $level2;
+    }
+}
+.showcase__media, .single__slide {
+    position: relative;
+    padding-bottom: 48px;
+    background: $secundario;
+    margin-top: 30px;
+    @include respond-to(desktop) {
+        margin-top: 0;
+    }
+    &.one-slide {
+        padding-bottom: 0;
+    }
+    @include respond-to(tablet) {
+        width: 660px;
+        margin: 30px auto 0;
+        z-index: $level2;
+        padding-bottom: 0;
+    }
+    @include respond-to(desktop) {
+        margin: 0 auto;
+    }
+    .slides {
+        display: flex;
+        align-items: center;
+        flex-flow: row wrap;
+        li {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            flex-flow: row wrap;
+            img {
+                object-fit: contain;
+                width: 100%;
+            }
+        }
+    }
+}
+.single__slide {
+    margin-bottom: 30px;
+    @include respond-to(tablet) {
+        width: 100%;
+    }
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+    li {
+        &:before {
+            display: none;
+        }
+    }
+    a {
+        &:after {
+            display: none;
+        }
+    }
+}
+.custom--controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row wrap;
+    z-index: $level1;
+    padding: 0 10px;
+    background: rgba($secundario, .8);
+    .one-slide & {
+        display: none;
+    }
+    p {
+        margin-bottom: 0;
+        margin-right: 2px;
+        color: $light;
+    }
+    .slide--count {
+        display: flex;
+        justify-content: flex-start;
+        @extend .book;
+        @include font-size(16px, 22px);
+    }
+    .flex-direction-nav {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        .flex-nav-prev {
+            margin-right: -1px;
+        }
+        a {
+            width: 30px;
+            height: 30px;
+            border: 1px solid $light;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: row wrap;
+            transition: all $time;
+            .no-touch & {
+                &:hover {
+                    background: $light;
+                    svg {
+                        fill: $secundario;
+                    }
+                }
+            }
+        }
+        svg {
+            width: 8px;
+            height: 12px;
+            fill: $light;
+            transition: all $time;
+        }
+    }
+}

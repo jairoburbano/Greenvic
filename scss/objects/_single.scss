@@ -1,0 +1,113 @@
+/*------------------------------------*\
+$SINGLE
+\*------------------------------------*/
+.container--single {
+    position: relative;
+    .wrap {
+        padding: 60px 20px 20px;
+        max-width: cr(570px);
+        @include respond-to(tablet) {
+            padding-bottom: 60px;
+        }
+    }
+}
+.single__meta {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba($light, .5);
+    color: $light;
+    p, span, a {
+        color: $light;
+        @extend .medium;
+        letter-spacing: 1px;
+        @include font-size(12px, 14px);
+        display: table;
+        margin-left: 3px;
+    }
+    span {
+        color: $main;
+    }
+    a {
+        .no-touch & {
+            transition: all $time;
+            &:hover {
+                color: $main;
+            }
+        }
+    }
+}
+.share--single {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row wrap;
+    @include respond-to(tablet) {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        &.share--stop {
+            position: absolute;
+            bottom: 60px;
+        }
+    }
+    a {
+        width: 20%;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+        transition: all $time;
+    }
+    svg {
+        fill: $light;
+        max-height: 16px;
+        max-width: 16px;
+    }
+}
+.share-facebook {
+    background: #3a5998;
+    .no-touch & {
+        &:hover {
+            background: darken(#3a5998, 12);
+        }
+    }
+}
+.share-twitter {
+    background: #29a8e2;
+    .no-touch & {
+        &:hover {
+            background: darken(#29a8e2, 12);
+        }
+    }
+}
+.share-linkedin {
+    background: #0077b4;
+    .no-touch & {
+        &:hover {
+            background: darken(#0077b4, 12);
+        }
+    }
+}
+.share-gplus {
+    background: #de4139;
+    .no-touch & {
+        &:hover {
+            background: darken(#de4139, 12);
+        }
+    }
+}
+.share-mail {
+    background: #ff6a08;
+    .no-touch & {
+        &:hover {
+            background: darken(#ff6a08, 12);
+        }
+    }
+}

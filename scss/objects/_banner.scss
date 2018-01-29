@@ -1,0 +1,147 @@
+/*------------------------------------*\
+$BANNER
+\*------------------------------------*/
+.banner {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    @include respond-to(tablet) {
+        height: 100vh;
+    }
+    @include respond-to(desktop) {
+        min-height: 800px;
+    }
+    .page-error & {
+        min-height: 480px;
+    }
+    &.banner--contacto, &.banner--auto {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 71px;
+        &::after {
+            opacity: .6;
+        }
+        @include respond-to(tablet) {
+            height: auto;
+            min-height: 100vh;
+            padding-top: 170px;
+        }
+        @include respond-to(desktop) {
+            padding-top: 160px;
+            min-height: 800px;
+        }
+    }
+    &.banner--auto {
+        @include less-than(tablet) {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            flex-flow: row wrap;
+        }
+    }
+    &.banner--single {
+        height: 400px;
+    }
+    &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: $level2;
+        background: $secundario;
+        opacity: .4;
+    }
+    .info__content {
+        padding-top: 71px;
+        @include less-than(tablet) {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            background-color: transparent;
+            padding-bottom: 60px;
+        }
+        @include respond-to(tablet) {
+            padding-top: 0;
+        }
+    }
+}
+.banner__media {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    z-index: $level1;
+    flex-flow: row wrap;
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+.banner__content {
+    z-index: $level4;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    .banner--single & {
+        flex-flow: column;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        height: auto;
+        max-width: cr(1190px);
+        padding: 0 20px;
+    }
+    .page-error & {
+        flex-flow: column;
+        padding: 0 20px;
+        p {
+            text-align: center;
+            color: $light;
+            max-width: 460px;
+            margin-bottom: 30px;
+        }
+        .btn {
+            margin: 0 auto;
+        }
+        img {
+            margin: 0 0 30px;
+        }
+    }
+    img {
+        width: 280px;
+        display: block;
+        @include respond-to(tablet) {
+            width: 460px;
+        }
+    }
+}
+.icon--section {
+    width: 19px;
+    height: 32px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: $level3;
+    display: none;
+    @include respond-to(tablet) {
+        width: 32px;
+        height: 52px;
+        bottom: 20px;
+        display: block;
+    }
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+}

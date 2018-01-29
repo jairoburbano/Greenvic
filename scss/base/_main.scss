@@ -1,0 +1,213 @@
+/*------------------------------------*\
+$MAIN
+\*------------------------------------*/
+html, body {
+    height: 100%;
+}
+body {
+    color: $secundario;
+    @extend .book;
+    height: auto !important;
+}
+.noscroll {
+    overflow: hidden;
+}
+@include sticky(291px, page-wrap, footer);
+@include respond-to(tablet) {
+    @include sticky(211px, page-wrap, footer);
+}
+input, select, textarea {
+    border-radius: 0;
+}
+.page-error {
+    @include sticky(0px, page-wrap, footer);
+}
+input, select, textarea, button {
+    border: 0;
+    appearance: none;
+    &:focus {
+        outline: 0;
+    }
+}
+.compat-object-fit {
+    background-size: cover;
+    img {
+        opacity: 0;
+    }
+}
+img {
+    max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    @extend .fertigo;
+}
+.page--title, .content .page--title {
+    @include font-size(32px, 34px);
+    margin-bottom: 30px;
+    @include respond-to(desktop) {
+        @include font-size(54px, 56px);
+    }
+}
+.section--title, .content .section--title {
+    @include font-size(28px, 30px);
+    margin-bottom: 30px;
+    text-align: center;
+    @include respond-to(desktop) {
+        @include font-size(36px, 38px);
+    }
+}
+.light--title {
+    color: $light;
+}
+.title--center {
+    text-align: center;
+    width: 100%;
+}
+strong {
+    @extend .bold;
+}
+.content {
+    font-family: 'cooper_hewittbook' !important;
+    .search__title {
+        @include font-size(12px, 14px);
+        @include respond-to(tablet) {
+            @include font-size(21px, 24px);
+        }
+        @include respond-to(desktop) {
+            @include font-size(28px, 32px);
+        }
+    }
+    a {
+        position: relative;
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            background: $main;
+            height: 2px;
+            width: 100%;
+        }
+        .no-touch & {
+            transition: all $time;
+            &:hover {
+                color: $main;
+            }
+        }
+    }
+    h1 {
+        @include font-size(32px, 34px);
+        margin-bottom: 30px;
+    }
+    h2 {
+        @include font-size(28px, 30px);
+        margin-bottom: 30px;
+    }
+    h3 {
+        @include font-size(24px, 26px);
+        margin-bottom: 30px;
+    }
+    h4 {
+        @include font-size(21px, 24px);
+        margin-bottom: 10px;
+    }
+    h5 {
+        @include font-size(16px, 22px);
+        text-transform: uppercase;
+        @extend .semibold;
+        margin-bottom: 10px;
+    }
+    h6 {
+        @include font-size(16px, 22px);
+        text-transform: uppercase;
+        @extend .medium;
+        margin-bottom: 10px;
+    }
+    p {
+        @include font-size(16px, 22px);
+        margin-bottom: 30px;
+        @extend .book;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+        &.highlight {
+            @include font-size(18px, 24px);
+        }
+    }
+    ul, ol {
+        @extend .book;
+        @include font-size(16px, 22px);
+        margin-bottom: 30px;
+        li {
+            margin-bottom: 4px;
+            position: relative;
+            padding-left: 20px;
+        }
+    }
+    ul {
+        li {
+            &::before {
+                content: '';
+                width: 6px;
+                height: 6px;
+                background: $main;
+                position: absolute;
+                top: 8px;
+                left: 4px;
+                border-radius: 50%;
+            }
+        }
+    }
+    ol {
+        counter-reset: numbers;
+        li {
+            &::before {
+                counter-increment: numbers;
+                content: counter(numbers) '.';
+                position: absolute;
+                color: $main;
+                top: 0px;
+                left: 0px;
+                @include font-size(16px, 22px);
+                @extend .semibold;
+            }
+        }
+    }
+    blockquote {
+        background: $secundario;
+        width: calc(100% + 40px);
+        margin-left: -20px;
+        padding: 10px 20px 20px;
+        color: $light;
+        @include font-size(18px, 24px);
+        @extend .fertigo;
+        text-align: center;
+        margin-bottom: 30px;
+        @include respond-to(tablet) {
+            width: 100%;
+            margin-left: 0;
+        }
+        &::after {
+            content: '';
+            width: 200px;
+            height: 2px;
+            background: $light;
+            margin: 10px auto 0;
+            display: block;
+        }
+    }
+    .wp-caption {
+        width: 100%;
+        position: relative;
+        margin-bottom: 30px;
+        p {
+            width: 100%;
+            display: block;
+            background: $secundario;
+            color: $light;
+            padding: 10px;
+            @extend .book;
+            @include font-size(14px, 18px);
+        }
+    }
+}

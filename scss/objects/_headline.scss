@@ -1,0 +1,46 @@
+/*------------------------------------*\
+$HEADLINE
+\*------------------------------------*/
+.headline {
+    position: relative;
+    z-index: $level3;
+    border-bottom: 1px solid $light;
+    margin-bottom: 30px;
+    @include respond-to(tablet) {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-flow: row wrap;
+    }
+}
+.category__box {
+    width: 200px;
+    height: 36px;
+    border: 1px solid rgba($light, .5);
+    position: relative;
+    margin: 0 auto 20px;
+    @include respond-to(tablet) {
+        margin: 0;
+    }
+    select {
+        width: 100%;
+        min-height: 36px;
+        max-height: 36px;
+        background-color: transparent;
+        color: $light;
+        @extend .medium;
+        @include font-size(12px, 20px);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 9px 40px 9px 10px;
+        position: relative;
+        z-index: $level2;
+    }
+    svg {
+        right: 10px;
+        top: 50%;
+        transform: translate(0, -50%);
+        position: absolute;
+        z-index: $level1;
+    }
+}

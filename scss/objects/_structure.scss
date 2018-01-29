@@ -1,0 +1,29 @@
+/*------------------------------------*\
+$STRUCTURE
+\*------------------------------------*/
+.banner--overlay {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    &::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $secundario;
+        opacity: .8;
+        z-index: $level1;
+    }
+    .wrap {
+        position: relative;
+        z-index: $level2;
+    }
+}
+.container {
+    background: white;
+    position: relative;
+    z-index: $level1;
+    overflow: hidden;
+}

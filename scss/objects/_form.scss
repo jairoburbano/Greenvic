@@ -1,0 +1,96 @@
+/*------------------------------------*\
+$FORM
+\*------------------------------------*/
+.formulario {
+    .input-group {
+        margin-bottom: 30px;
+        position: relative;
+        width: 100%;
+        &.form__error {
+            input, textarea {
+                border: 2px solid $contraste;
+            }
+            label {
+                color: $contraste !important;
+            }
+        }
+        span.form__error {
+            color: $contraste;
+            @include font-size(12px, 14px);
+            position: absolute;
+            bottom: -16px;
+            right: 0;
+            width: 100%;
+            text-align: right;
+            @extend .book;
+        }
+        input, textarea {
+            background-color: transparent;
+            border: 2px solid $light;
+            height: 48px;
+            position: relative;
+            z-index: $level2;
+            width: 100%;
+            padding: 14px 10px 0;
+            @extend .book;
+            @include font-size(18px, 24px);
+            transition: all $time;
+        }
+        textarea {
+            height: 138px;
+            resize: none;
+        }
+        label {
+            position: absolute;
+            left: 12px;
+            top: 17px;
+            z-index: $level1;
+            color: $light;
+            opacity: .5;
+            @include font-size(12px, 12px);
+            text-transform: uppercase;
+            transition: all $time;
+            letter-spacing: 1px;
+        }
+        &.focusin {
+            input, textarea {
+                background: $light;
+            }
+            label {
+                top: 7px;
+                color: $secundario;
+                @include font-size(9px, 9px);
+                z-index: $level3;
+            }
+        }
+    }
+    .send-group {
+        input {
+            background-color: transparent;
+            margin-left: auto;
+            margin-right: 0;
+            text-align: center;
+            display: block;
+        }
+    }
+    .message {
+        width: 100%;
+        background: $main;
+        padding: 20px;
+        display: none;
+        margin-top: 20px;
+        &.form__error {
+            background: $contraste;
+            h4, p {
+                color: $light;
+            }
+        }
+        h4 {
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 0;
+            color: $secundario;
+        }
+    }
+}
